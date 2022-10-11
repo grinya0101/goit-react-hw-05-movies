@@ -10,6 +10,11 @@ export const StyledLink = styled(NavLink)`
   &.active {
     color: ${p => p.theme.colors.header.active};
   }
+
+  :hover:not(.active),
+  :focus-visible:not(.active) {
+    color: ${p => p.theme.colors.header.active};
+  }
 `;
 
 export const StyledNav = styled.nav`

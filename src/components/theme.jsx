@@ -11,10 +11,10 @@ export const theme = {
       primary: '#000000',
       active: 'rgb(234, 47, 58)',
     },
-
+    loaderColor: '#e50000',
     colorEmailNotification: '#f2f2f2',
     bgColorEmailNotification: '#0060af',
-    bgColorNotification: '#e50000',
+
     transparent: 'transparent',
     secBgColorAsideBtn: '#3366ff',
     secBgColorHeaderBtn: 'rgba(51, 102, 255, 0.2)',
