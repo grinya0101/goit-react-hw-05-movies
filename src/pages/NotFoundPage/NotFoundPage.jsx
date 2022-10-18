@@ -5,7 +5,7 @@ import { StyledContainer, StyledMessage } from './NotFoundPage.styled';
 export default function NotFoundPage() {
   return (
     <StyledContainer>
-      <StyledMessage>Page not found :(</StyledMessage>
+      <StyledMessage>Page not found : </StyledMessage>
       <Link to="/"> To main page</Link>
     </StyledContainer>
   );
