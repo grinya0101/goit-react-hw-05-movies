@@ -45,6 +45,9 @@ export default function MovieDetails() {
   const filterGenre = genres.map(genre => genre.name).join(' ');
   const baseImgUrl = 'https://image.tmdb.org/t/p/w500/';
 
+  const noImage =
+    'https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg';
+
   return (
     <div>
       <StyledButtom onClick={goBackPage}>
@@ -52,7 +55,7 @@ export default function MovieDetails() {
       </StyledButtom>
       <StyledContainer>
         <img
-          src={`${baseImgUrl}${poster_path}`}
+          src={poster_path ? `${baseImgUrl}${poster_path}` : noImage}
           alt={original_title}
           width="300"
         />

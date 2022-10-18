@@ -1,6 +1,6 @@
 const items = [
-  { text: 'Cast', href: '' },
-  { text: 'Reviews', href: '' },
+  { text: 'Cast', href: 'cast' },
+  { text: 'Reviews', href: 'reviews' },
 ];
 
 export default items;

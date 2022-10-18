@@ -6,9 +6,7 @@ import MovieList from 'components/MovieList/MovieList';
 import { GetMovieBySearch } from 'components/utils/api-request';
 
 export default function Movies() {
-  // const [query, setQuery] = useState('');
   const [searchMovies, setSearchMovies] = useState([]);
-
   const [searchParams, setSearchParams] = useSearchParams();
 
   // считываем значение query в строке поиска и передаем в функцию поиска ниже

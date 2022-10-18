@@ -18,12 +18,13 @@ export const GetGenre = async () => {
     const { genres } = await axios.get(
       `https://api.themoviedb.org/3/genre/movie/list?api_key=${API_KEY}`
     );
-    console.log(genres);
+
     return genres;
   } catch (error) {
     console.error(error);
   }
 };
+// https://api.themoviedb.org/3/genre/movie/list?api_key=83cba2c85d0df477852b094af9fbdddb
 
 export const GetMovieById = async id => {
   try {
@@ -36,6 +37,7 @@ export const GetMovieById = async id => {
     console.error(error);
   }
 };
+// https://api.themoviedb.org/3/movie/766220?api_key=83cba2c85d0df477852b094af9fbdddb&language=en-US
 
 export const GetMovieBySearch = async q => {
   try {
@@ -48,7 +50,32 @@ export const GetMovieBySearch = async q => {
     console.error(error);
   }
 };
+// https://api.themoviedb.org/3/search/movie?api_key=83cba2c85d0df477852b094af9fbdddb&query=cat&page=1&include_adult=false
 
-// https://api.themoviedb.org/3/movie/{movie_id}/credits?api_key=<<api_key>>&language=en-US
+export const GetCast = async id => {
+  try {
+    const { data } = await axios.get(
+      `https://api.themoviedb.org/3/movie/${id}/credits?api_key=83cba2c85d0df477852b094af9fbdddb&language=en-US`
+    );
 
-// https://api.themoviedb.org/3/movie/{movie_id}/reviews?api_key=<<api_key>>&language=en-US&page=1
+    return data.cast;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+// https://api.themoviedb.org/3/movie/361743/credits?api_key=83cba2c85d0df477852b094af9fbdddb&language=en-US
+
+export const GetReviews = async id => {
+  try {
+    const { data } = await axios.get(
+      `https://api.themoviedb.org/3/movie/${id}/reviews?api_key=83cba2c85d0df477852b094af9fbdddb&language=en-US`
+    );
+
+    return data.results;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+// https://api.themoviedb.org/3/movie/361743/reviews?api_key=83cba2c85d0df477852b094af9fbdddb&language=en-US
