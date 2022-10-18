@@ -8,7 +8,7 @@ export default function MovieList({ movies, title = null }) {
       <ol>
         {movies.map(({ id, original_title }) => {
           return (
-            <li key={original_title}>
+            <li key={id}>
               <StyledLink to={`/movies/${id}`}>{original_title}</StyledLink>
             </li>
           );
