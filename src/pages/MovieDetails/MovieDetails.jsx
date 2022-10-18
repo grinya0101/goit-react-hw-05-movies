@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Outlet, useParams } from 'react-router-dom';
+import { Outlet, useParams, useNavigate, useLocation } from 'react-router-dom';
 import { HiOutlineArrowCircleLeft } from 'react-icons/hi';
 import { GetMovieById } from 'components/utils/api-request';
 
@@ -14,7 +14,14 @@ import items from './AddInformItems';
 
 export default function MovieDetails() {
   const [movie, setMovie] = useState({});
-  // const nav = useNavigate();
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  // если скопировать адрес фильма и перейти в отдельной закладке,
+  //   сслыки для возврата GO BACK нет, и будет ошибка.
+  // читать код ниже так:
+  // - если в location.state нет свойства "from" назначь на его место '/'
+  const from = location.state?.from || '/';
 
   //обьект, котрорый показывает все динамические параметры в адресной строке
   // в нашем случае - это id фильма, по которому будет идти поиск ниже
@@ -32,7 +39,11 @@ export default function MovieDetails() {
     fetchMovieById();
   }, [movieId]);
 
-  const goBackPage = () => {};
+  //в данном случае при нажатии на кнопку сайт переходит на один "адрес"
+  //назад. Это нам не подхожит
+  // const goBackPage = () => navigate(-1);
+
+  const goBackPage = () => navigate(from);
 
   const {
     original_title,
@@ -80,7 +91,9 @@ export default function MovieDetails() {
         <ul>
           {items.map(({ text, href }) => (
             <li key={text}>
-              <SyledLink to={href}>{text}</SyledLink>
+              <SyledLink state={{ from }} to={href}>
+                {text}
+              </SyledLink>
             </li>
           ))}
         </ul>
